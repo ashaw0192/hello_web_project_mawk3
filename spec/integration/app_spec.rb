@@ -45,4 +45,12 @@ describe Application do
 
     end
   end
+
+  context "GET to /hello" do
+    it "returns name in html" do
+      response = get("/hello", name: "Frank")
+      expect(response.status). to eq 200
+      expect(response.body).to include '<h1>Hello Frank!</h1>'
+    end
+  end
 end
